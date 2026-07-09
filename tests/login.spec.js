@@ -12,4 +12,16 @@ test.describe('Login Tests', () => {
           await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
     });
 
+    test("should not logged in With invalid password", async ({page}) => {
+        const loginPage = new LoginPage(page);
+        await loginPage.goto();
+
+        await loginPage.login("standard_user","secret_code");
+
+        await expect(page.locator('[data-test="error"]')).toHaveText(
+             "Epic sadface: Username and password do not match any user in this service");
+
+
+    });
+
 });
