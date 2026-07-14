@@ -6,7 +6,7 @@ class InventoryPage {
 
         this.pageTitle = page.locator('span[data-test="title"]');
         this.sortButton = page.locator('select[class="product_sort_container"]');
-        this.addToCartButton =page.locator('button[id="add-to-cart-sauce-labs-backpack"]');
+        this.addToCartButton =page.locator('button[class="btn btn_primary btn_small btn_inventory "]');
         this.product =page.locator('div[data-test="inventory-item"]');
 
         this.productName =page.locator('div[data-test="inventory-item-name"]');
@@ -16,6 +16,8 @@ class InventoryPage {
 
         this.productDetailPage  = page.locator('div[id="inventory_item_container"]');
         this.backButton= page.locator('#back-to-products');
+
+        this.itemDescription = page.locator('div[data-test="inventory-item-desc"]');
 
 
     }
@@ -28,8 +30,8 @@ class InventoryPage {
         return this.productName;
     }
 
-    async clickAddToCartButton(){
-        await this.addToCartButton.click();
+    async clickAddToCartButton(index){
+        await this.addToCartButton.nth(index).click();
     }
 
     async getRemoveButtonText(){
@@ -41,7 +43,7 @@ class InventoryPage {
     }
 
     async clickProduct(){
-        await this.productName.nth(1).click();
+        await this.productName.click();
     }
 
     async clickBackButton(){

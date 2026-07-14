@@ -1,3 +1,4 @@
+const { loginData } = require('../test-data/login-data');
 const BasePage  = require('./BasePage');
 
 class LoginPage extends BasePage {
@@ -18,6 +19,10 @@ class LoginPage extends BasePage {
         await this.username.fill(username);
         await this.password.fill(password);
         await this.loginButton.click()
+    }
+    async loginAndgoToHome(){
+        this.goto();
+        this.login(loginData.validUser.username,loginData.validUser.password);
     }
 
 }
