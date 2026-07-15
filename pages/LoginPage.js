@@ -21,8 +21,8 @@ class LoginPage extends BasePage {
         await this.loginButton.click()
     }
     async loginAndgoToHome(){
-        this.goto();
-        this.login(loginData.validUser.username,loginData.validUser.password);
+        await this.goto();
+        await this.login(loginData.validUser.username,loginData.validUser.password);
     }
 
 }

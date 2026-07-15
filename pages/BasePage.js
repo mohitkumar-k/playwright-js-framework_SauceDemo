@@ -6,6 +6,9 @@ class BasePage {
     async click(locator){
         await locator.click();
     }
+    async fill(locator,value){
+        await locator.fill(value);
+    }
 
 }
 
