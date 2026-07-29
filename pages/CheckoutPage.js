@@ -10,7 +10,9 @@ class CheckoutPage extends BasePage {
         this.continueButton = page.locator('input[data-test="continue"]');
         this.finishButton = page.locator('button[data-test="finish"]');
         this.checkoutCompleteHeader = page.locator('.complete-header');
-
+        this.errorArea = page.locator('h3[data-test="error"]');
+        this.errorButton = page.locator('.error-button');
+        this.cancelButton = page.getByRole('button', {name: 'cancel'});
 
     }
 }
